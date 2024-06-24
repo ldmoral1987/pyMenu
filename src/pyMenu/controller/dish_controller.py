@@ -24,11 +24,5 @@ class DishController():
     
     def load_file(self, filename):
         pass
-
-    def load_test_data(self):
-        self.add_dish(Dish("Tortilla de patatas", "Tortilla de patatas", "Patatas, Aceite, Huevo, Sal"))
-        self.add_dish(Dish("Salmorejo", "Salmorejo", "Tomate, Ajo, Aceite, Sal"))
-        self.add_dish(Dish("Ensalada de pimientos", "Ensalada de pimientos", "Pimientos, Aceite, Atún"))
-
         
 

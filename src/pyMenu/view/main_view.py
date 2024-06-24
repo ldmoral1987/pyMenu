@@ -3,8 +3,6 @@ import tkinter as tk
 class MainView(tk.Frame):
     def __init__(self):
         window=tk.Tk()
-        # add widgets here
-
         window.title('pyMenu 1.0')
         self.configure_menu(window)
         self.center_window(window, 800, 600)
@@ -27,14 +25,9 @@ class MainView(tk.Frame):
         barra_menus = tk.Menu()
         menu_archivo = tk.Menu(barra_menus, tearoff=False)
         menu_archivo.add_command(
-            label="Nuevo",
+            label="Nueva planificación",
             accelerator="Ctrl+N",
             command=self.archivo_nuevo_presionado
         )
         barra_menus.add_cascade(menu=menu_archivo, label="Archivo")
         window.config(menu=barra_menus)
-        pass
-
-
-    
-

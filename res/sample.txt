@@ -1,0 +1,3 @@
+Tortilla de patatas;Tortilla de patatas;Patatas,Huevo,Aceite,Sal;True;True
+Tortilla francesa;Tortilla francesa sin patata;Huevo,Aceite,Sal;True;True
+
