@@ -14,5 +14,5 @@ class Dish():
         Returns:
             str: Serialización del objeto Dish
         """
-        return f"{self.name}"
+        return f"{self.name}-{self.description}-{self.ingredients}-{self.isLunch}-{self.isSuper}"
         

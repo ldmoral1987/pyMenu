@@ -3,17 +3,15 @@ from controller.dish_controller import DishController
 from model.dish import Dish
 
 class NewDishView(Frame):
-    dish_controller: DishController
-    
     def __init__(self, dish_controller: DishController):
         # Se guarda la referencia al controlador
         self.dish_controller = dish_controller
         
-        window=Tk()
-        window.title('pyMenu 1.0 --- Nuevo plato')
-        self.center_window(window, 400, 300)
-        self.configure_widgets(window)
-        window.mainloop()
+        self.window=Tk()
+        self.window.title('pyMenu 1.0 --- Nuevo plato')
+        self.center_window(self.window, 400, 300)
+        self.configure_widgets(self.window)
+        self.window.mainloop()
 
     def center_window(self, window, width=300, height=200):
         # get screen width and height
@@ -47,12 +45,12 @@ class NewDishView(Frame):
         self.ingredients.grid(row=3, column=1, columnspan=3, padx=5, pady=5)
         
         Label(window, text="¿Almuerzo?").grid(row=4, column=0, padx=5, pady=5, sticky=E)
-        self.is_lunch = int()
+        self.is_lunch = IntVar()
         isLunch = Checkbutton(window, bd=3, variable=self.is_lunch)
         isLunch.grid(row=4, column=1, columnspan=3, padx=5, pady=5)
         
         Label(window, text="¿Cena?").grid(row=5, column=0, padx=5, pady=5, sticky=E)
-        self.is_super = int()
+        self.is_super = IntVar()
         isSuper = Checkbutton(window, bd=3, variable=self.is_super)
         isSuper.grid(row=5, column=1, columnspan=3, padx=5, pady=5)     
         
@@ -60,9 +58,7 @@ class NewDishView(Frame):
         action.grid(row=6, column=0, columnspan=4, padx=5, pady=5)
         
     def add_dish(self):
-        dish = Dish(self.name.get(), self.description.get(), self.ingredients.get(), self.is_lunch, self.is_super)
-        print(dish)
-        
-if __name__ == "__main__":
-    NewDishView()
+        dish = Dish(self.name.get(), self.description.get(), self.ingredients.get(), self.is_lunch.get(), self.is_super.get())
+        self.dish_controller.add_dish(dish)
+        self.window.destroy()
     

@@ -1,7 +1,12 @@
 import tkinter as tk
+from controller.dish_controller import DishController
+from view.new_dish_view import NewDishView
 
 class MainView(tk.Frame):
-    def __init__(self):
+    dish_controller: DishController
+    
+    def __init__(self, dish_controller: DishController):
+        self.dish_controller = dish_controller
         window=tk.Tk()
         window.title('pyMenu 1.0')
         self.configure_menu(window)
@@ -9,7 +14,7 @@ class MainView(tk.Frame):
         window.mainloop()
     
     def archivo_nuevo_presionado(self):
-        print("¡Has presionado para crear un nuevo archivo!")
+        NewDishView(self.dish_controller)
 
     def center_window(self, window, width=300, height=200):
         # get screen width and height
@@ -25,7 +30,7 @@ class MainView(tk.Frame):
         barra_menus = tk.Menu()
         menu_archivo = tk.Menu(barra_menus, tearoff=False)
         menu_archivo.add_command(
-            label="Nueva planificación",
+            label="Nuevo plato",
             accelerator="Ctrl+N",
             command=self.archivo_nuevo_presionado
         )
