@@ -1,10 +1,16 @@
-# Clase Plato, representa un plato de comida en la planificación
 class Dish():
-    def __init__(self, nombre, descripcion, ingredientes):
-        self.nombre = nombre
-        self.descripcion = descripcion
-        self.ingredientes = ingredientes
+    """Clase Dish, representa una comida de la planificación (almuerzo o cena)."""
+    def __init__(self, name: str, description: str, ingredients: list):
+        """Constructor de la clase"""
+        self.name = name
+        self.description = description
+        self.ingredients = ingredients
         
     def __str__(self):
-        return f"{self.nombre}"
+        """Serializa la comida
+
+        Returns:
+            str: Serialización del objeto Dish
+        """
+        return f"{self.name}"
         
