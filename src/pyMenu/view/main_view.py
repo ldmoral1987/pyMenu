@@ -1,13 +1,14 @@
-import tkinter as tk
+import PIL.Image, PIL.ImageTk
+from tkinter import *
 from controller.dish_controller import DishController
 from view.new_dish_view import NewDishView
 
-class MainView(tk.Frame):
+class MainView(Frame):
     dish_controller: DishController
     
     def __init__(self, dish_controller: DishController):
         self.dish_controller = dish_controller
-        window=tk.Tk()
+        window=Tk()
         window.title('pyMenu 1.0')
         self.configure_menu(window)
         self.center_window(window, 800, 600)
@@ -26,13 +27,16 @@ class MainView(tk.Frame):
         y = (screen_height/2) - (height/2)
         window.geometry('%dx%d+%d+%d' % (width, height, x, y))
     
+    def p(self):
+        print("You Clicked")
+    
     def configure_menu(self, window):
-        barra_menus = tk.Menu()
-        menu_archivo = tk.Menu(barra_menus, tearoff=False)
-        menu_archivo.add_command(
-            label="Nuevo plato",
-            accelerator="Ctrl+N",
-            command=self.archivo_nuevo_presionado
-        )
-        barra_menus.add_cascade(menu=menu_archivo, label="Archivo")
-        window.config(menu=barra_menus)
+        
+        toolbar = Frame(window, background="lightgray")
+
+        new_dish_img = PIL.ImageTk.PhotoImage(PIL.Image.open("res/food.png"))
+        new_dish_button = Button(toolbar, image=new_dish_img, relief=FLAT,command=self.p)
+        new_dish_button.image = new_dish_img
+        new_dish_button.pack(side=LEFT, padx=2, pady=2)
+
+        toolbar.pack(side=TOP, fill=X)

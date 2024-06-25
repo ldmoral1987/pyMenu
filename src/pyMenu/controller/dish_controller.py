@@ -1,5 +1,6 @@
 from model.dish import Dish
 from model.day import Day
+from tkinter import filedialog
 
 class DishController():
     menu = list()
@@ -12,17 +13,14 @@ class DishController():
         # Se añade el plato al menú
         self.menu.append(d)
     
-    def search_dish(self, dish: str):
-        pass
-    
-    def delete_dish(self, dish: str):
-        pass
-    
     def show_dish_collection(self):
         for dish in self.menu:
             print(dish)
     
-    def load_file(self, filename):
-        pass
+    def load_dish_collection_from_file(self):
+        file_path = filedialog.askopenfilename()
+        f = open(file_path, "r")
+        for x in f:
+            print(x)
         
 

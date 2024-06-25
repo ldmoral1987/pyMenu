@@ -36,20 +36,16 @@ class NewDishView(Frame):
         self.name = Entry(window, bd=3)
         self.name.grid(row=1, column=1, columnspan=3, padx=5, pady=5)
 
-        Label(window, text="Descripción").grid(row=2, column=0, padx=5, pady=5, sticky=E)
-        self.description = Entry(window, bd=3)
-        self.description.grid(row=2, column=1, columnspan=3, padx=5, pady=5)        
-        
         Label(window, text="Ingredientes").grid(row=3, column=0, padx=5, pady=5, sticky=E)
         self.ingredients = Entry(window, bd=3)
         self.ingredients.grid(row=3, column=1, columnspan=3, padx=5, pady=5)
         
-        Label(window, text="¿Almuerzo?").grid(row=4, column=0, padx=5, pady=5, sticky=E)
+        Label(window, text="¿Es almuerzo?").grid(row=4, column=0, padx=5, pady=5, sticky=E)
         self.is_lunch = IntVar()
         isLunch = Checkbutton(window, bd=3, variable=self.is_lunch)
         isLunch.grid(row=4, column=1, columnspan=3, padx=5, pady=5)
         
-        Label(window, text="¿Cena?").grid(row=5, column=0, padx=5, pady=5, sticky=E)
+        Label(window, text="¿Es cena?").grid(row=5, column=0, padx=5, pady=5, sticky=E)
         self.is_super = IntVar()
         isSuper = Checkbutton(window, bd=3, variable=self.is_super)
         isSuper.grid(row=5, column=1, columnspan=3, padx=5, pady=5)     
@@ -58,7 +54,7 @@ class NewDishView(Frame):
         action.grid(row=6, column=0, columnspan=4, padx=5, pady=5)
         
     def add_dish(self):
-        dish = Dish(self.name.get(), self.description.get(), self.ingredients.get(), self.is_lunch.get(), self.is_super.get())
+        dish = Dish(self.name.get(), self.ingredients.get(), self.is_lunch.get(), self.is_super.get())
         self.dish_controller.add_dish(dish)
         self.window.destroy()
     
